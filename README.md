@@ -46,7 +46,7 @@ This application follows a clean architecture for managing state and persistence
 ```mermaid
 graph TD
     A[User Actions] -->|Add / Delete| B[Home Screen]
-    B -->|Triggers UI Dialog / Delete| C[Hive Box "todos"]
+    B -->|Triggers UI Dialog / Delete| C["Hive Box 'todos'"]
     C -->|Auto Notify Changes| D[ValueListenableBuilder]
     D -->|Triggers Rebuild| B
     B -->|Renders List| E[TodoCard Widgets]
