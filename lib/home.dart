@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:todo/card.dart';
+import 'package:todo/models/todo.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -9,18 +11,20 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  List<String> todos = [
-    "Go for a walk",
-    "Study Flutter",
-    "Buy groceries",
-  ];
+  late final Box<Todo> todoBox;
+
+  @override
+  void initState() {
+    super.initState();
+    todoBox = Hive.box<Todo>('todos');
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blueAccent[300],
-        title: Text("Todo", style: TextStyle(color: Colors.white)),
+        title: const Text('Todo', style: TextStyle(color: Colors.white)),
         surfaceTintColor: Colors.transparent,
         elevation: 0,
         centerTitle: true,
@@ -30,18 +34,25 @@ class _HomeState extends State<Home> {
         child: Column(
           children: [
             Expanded(
-              child: ListView.builder(
-                itemCount: todos.length,
-                itemBuilder: (context, index) {
-                  return TodoCard(
-                      onDelete: (){
-                        setState(() {
-                          todos.removeAt(index);
-                        });
-                      },
-                      title: todos[index],
-                    );
-                  
+              child: ValueListenableBuilder<Box<Todo>>( 
+                valueListenable: todoBox.listenable(),
+                builder: (context, box, _) {
+                  return ListView.builder(
+                    itemCount: box.length,
+                    itemBuilder: (context, index) {
+                      final todo = box.getAt(index);
+                      if (todo == null) {
+                        return const SizedBox.shrink();
+                      }
+
+                      return TodoCard(
+                        onDelete: () {
+                          todoBox.deleteAt(index);
+                        },
+                        title: todo.title,
+                      );
+                    },
+                  );
                 },
               ),
             ),
@@ -69,9 +80,7 @@ class _HomeState extends State<Home> {
                           onPressed: () {
                             final text = controller.text.trim();
                             if (text.isNotEmpty) {
-                              setState(() {
-                                todos.add(text);
-                              });
+                              todoBox.add(Todo(title: text));
                             }
                             Navigator.pop(context);
                           },
