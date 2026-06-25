@@ -10,7 +10,7 @@
   [![License](https://img.shields.io/badge/License-MIT-green.svg)](#)
   [![Platform](https://img.shields.io/badge/Platform-Android%20%7C%20iOS%20%7C%20Web-lightgrey.svg)](#)
 
-  [**✨ View Live Demo ✨**](YOUR_LIVE_LINK_HERE)
+  [**✨ View Live Demo ✨**]https://github.com/FazilPRaphi/flutter-todo/releases/tag/v1.0.0
 </div>
 
 ---
