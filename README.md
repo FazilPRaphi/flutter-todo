@@ -10,7 +10,9 @@
   [![License](https://img.shields.io/badge/License-MIT-green.svg)](#)
   [![Platform](https://img.shields.io/badge/Platform-Android%20%7C%20iOS%20%7C%20Web-lightgrey.svg)](#)
 
-  [**✨ View Live Demo ✨**]https://github.com/FazilPRaphi/flutter-todo/releases/tag/v1.0.0
+  ## ✨ Live Demo
+
+  [![View Live Demo](https://img.shields.io/badge/🚀-VIEW%20LIVE%20DEMO-blueviolet?style=for-the-badge&logoColor=white)](https://github.com/FazilPRaphi/flutter-todo/releases/tag/v1.0.0)
 </div>
 
 ---
@@ -134,8 +136,7 @@ flutter doctor
 
 ## 🌐 Live Demo Link
 You can access the live web build or release binaries here:
-👉 **[Click Here to Access Live App](YOUR_LIVE_LINK_HERE)** *(Replace this URL with your live hosting URL, e.g., GitHub Pages, Codemagic, or Firebase Hosting).*
-
+👉 **[Click Here to Access Live App]https://github.com/FazilPRaphi/flutter-todo/releases/tag/v1.0.0
 ---
 
 ## 👥 Contributors & Collaboration
