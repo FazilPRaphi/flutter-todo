@@ -28,7 +28,15 @@ class TodoCard extends StatelessWidget {
               child: SizedBox(width: 20),
             ),
             IconButton(onPressed:onDelete,
-             icon: Icon(Icons.done)),
+             icon: Icon(Icons.done),
+             style: IconButton.styleFrom(
+              hoverColor: Colors.blue,
+              backgroundColor: Colors.black,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+              )
+             ),
+             ),
           ],
           
         ),

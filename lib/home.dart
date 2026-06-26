@@ -76,7 +76,11 @@ class _HomeState extends State<Home> {
                           onPressed: () => Navigator.pop(context),
                           child: const Text('Cancel'),
                         ),
-                        ElevatedButton(
+                        ElevatedButton(style: ElevatedButton.styleFrom(
+                          shape: BeveledRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          )
+                        ),
                           onPressed: () {
                             final text = controller.text.trim();
                             if (text.isNotEmpty) {
@@ -91,7 +95,7 @@ class _HomeState extends State<Home> {
                   },
                 );
               },
-              child: const Icon(Icons.add),
+              child: const Icon(Icons.add,color: Colors.white,),
             ),
           ],
         ),
